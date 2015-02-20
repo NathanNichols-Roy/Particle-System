@@ -96,29 +96,56 @@ public:
         }
     }
 
-    void applyForce(float x, float y, float force, float radius) {
+    void applyForce(float x, float y, float radius, float force) {
         //particle is within node + radius
         if(x > (minX - radius) && x < (maxX + radius) && y > (minY - radius) && y < (maxY + radius))
         {
+            float xd, yd;
+            float dist;
             //internal node
             if(has_children)
             {
-                nw->applyForce(x, y, force);
-                ne->applyForce(x, y, force);
-                se->applyForce(x, y, force);
-                sw->applyForce(x, y, force);
+                nw->applyForce(x, y, radius, force);
+                ne->applyForce(x, y, radius, force);
+                se->applyForce(x, y, radius, force);
+                sw->applyForce(x, y, radius, force);
             }
             //leaf
             else
             {
                 //has at least 1 particle in node
-                if(num_particles < NODE_CAPACITY && num_particles != 0)
+                if(num_particles <= NODE_CAPACITY && num_particles != 0)
                 {
+                    for(int i = 0; i < num_particles; ++i)
+                    {
+                        Particle &cur = *particles[i];
+                        xd = cur.x - x;
+                        yd = cur.y - y;
+                        if(xd != 0 && yd != 0)
+                        {
+                            dist = ofDist(x, y, cur.x, cur.y);
+                            if(dist < radius)
+                            {
+                                ofVec2f force_vec;
+                                if(force < 0)
+                                {
+                                    force_vec.set(x - cur.x, y - cur.y);
+                                }
+                                else
+                                {
+                                    force_vec.set(xd, yd);
+                                }
 
-                }
-                //empty node
-                else
-                {
+                                //convert to unit vector
+                                force_vec.normalize();
+                                //force_vec * force;
+                                force_vec.scale(force);
+
+                                cur.x_force = force_vec.x;
+                                cur.y_force = force_vec.y;
+                            }
+                        }
+                    }
 
                 }
             }

@@ -3,11 +3,11 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofBackground(ofColor::black);
-    ofSetFrameRate(160);
+    ofSetFrameRate(60);
 
     particleSystem.setup( ofGetWidth(), ofGetHeight() );
 
-    k_particles = 5;
+    k_particles = 8;
     float max_velocity = 0.5;
 
     for(int i = 0; i < k_particles*1000; ++i)
@@ -24,14 +24,22 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    particleSystem.applyForce(mouseX, mouseY, 50);
+    particleSystem.buildTree();
+    for(int i = 0; i < particleSystem.size(); ++i)
+    {
+        particleSystem.applyForce(particleSystem.particles[i].x, particleSystem.particles[i].y, 15, 0.1);
+    }
+    //particleSystem.applyForce(ofGetWidth()/2, ofGetHeight()/2, 2000, -1);
+    particleSystem.applyForce(mouseX, mouseY, 50, -2);
+
     particleSystem.update();
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     glPointSize(2);
-    particleSystem.quadTree->drawTree();
+    //particleSystem.quadTree->drawTree();
 
     ofSetColor(ofColor::white);
     particleSystem.draw();

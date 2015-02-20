@@ -19,8 +19,8 @@ public:
     //Methods
     void setup(int width, int height);
     void add(Particle particle);
-    void size();
-    void applyForce(float x, float y, float radius);
+    int size();
+    void applyForce(float x, float y, float radius, float force);
     void buildTree();
     void update();
     void draw();

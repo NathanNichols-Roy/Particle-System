@@ -8,32 +8,32 @@
 	</File>
 	<File name="src\particle.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1087" topLine="31" />
+			<Cursor1 position="1143" topLine="22" />
 		</Cursor>
 	</File>
 	<File name="src\particleSystem.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1509" topLine="44" />
+			<Cursor1 position="332" topLine="7" />
 		</Cursor>
 	</File>
 	<File name="src\main.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="149" topLine="0" />
+			<Cursor1 position="168" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\ofApp.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="325" topLine="0" />
+			<Cursor1 position="546" topLine="6" />
 		</Cursor>
 	</File>
 	<File name="src\particleSystem.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="539" topLine="0" />
+			<Cursor1 position="453" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\tree.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4087" topLine="132" />
+			<Cursor1 position="4108" topLine="111" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
